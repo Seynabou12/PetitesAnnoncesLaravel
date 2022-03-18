@@ -27,11 +27,28 @@
             
             <form action="{{ route('posts.store')}}" method="post" enctype="multipart/form-data" class="mt-5">
 
+                @csrf
                 <x-label for="title" value="Titre du texte" />
                 <x-input id="title" name="title" />
 
                 <x-label for="content" value="Content du texte" />
                 <textarea name="content" id="content" cols="30" rows="10"></textarea>
+
+                <x-label for="image" value="Image du texte" />
+                <x-input id="image" type="file" name="image" />
+
+                <x-label for="category" value="Categories de post" />
+                <select name="category" id="category">
+                    @foreach ($categories as $category)
+                    {
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    }
+                    @endforeach
+
+                </select>
+
+                <x-button style="display: block !important;" class="mt-5">Creer mon poste</x-button>
+
             </form>
         
         </div>
