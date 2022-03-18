@@ -12,4 +12,14 @@ class PostController extends Controller
         $posts = Post::with('category', 'user')->get();
         return view('post.index', compact('posts'));
     }
+
+    public function create()
+    {
+        return view('post.create');
+    }
+
+    public function store()
+    {
+        
+    }
 }
