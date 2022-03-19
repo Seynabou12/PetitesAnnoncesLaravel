@@ -21,13 +21,23 @@
 </style>
     <!-- component -->
     
+    
     <h1 class="text-center mt-5">Creer Un Post</h1>
+    
 
         <div class="max-w-7xl max-auto sm:px-6 lg:px-8 ms-5 ">
+
+        <div class="my-5">
+        @foreach ($errors->all() as $error)
+            <span class="block text-red-500">{{ $error }}</span>
+        @endforeach
+        </div>
+           
             
-            <form action="{{ route('posts.store')}}" method="post" enctype="multipart/form-data" class="mt-5">
+            <form class="form-control" action="{{ route('posts.store')}}" method="post" enctype="multipart/form-data" class="mt-5">
 
                 @csrf
+
                 <x-label for="title" value="Titre du texte" />
                 <x-input id="title" name="title" />
 
